@@ -182,7 +182,7 @@ module.exports.handleReply = (() => {
 	}) {
 		var _this2 = this;
 
-		if (handleReply.author != event.senderID) return api.sendMessage('Cút', event.threadID);
+		if (handleReply.author != event.senderID) return api.sendMessage('Cút', event.threadID, event.messageID);
 		switch (handleReply.type) {
 			case "reply": {
 				axios({
