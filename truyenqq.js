@@ -87,8 +87,8 @@ module.exports.run = (() => {
                         images.push(fs.createReadStream(__dirname + `/truyenqq/${i}_${event.senderID}.png`));
                         path.push(__dirname + `/truyenqq/${i}_${event.senderID}.png`);
                     }
-                    let msg = data.map(function (item) {
-                        return `📖 Name: ${item.title}\n📅 Time: ${item.time_ago}\n`;
+                    let msg = data.map(function (item, element) {
+                        return `🔗 STT: ${element + 1}\n📖 Name: ${item.title}\n📅 Time: ${item.time_ago}\n`;
                     }).join('\n\n');
                     return api.sendMessage({
                         body: `Danh sách các truyện mới cập nhật\n${msg}\n\nReply tin nhắn này theo số thứ tự để đọc truyện!`,
@@ -145,8 +145,8 @@ module.exports.run = (() => {
                         images.push(fs.createReadStream(__dirname + `/truyenqq/${i}_${event.senderID}.png`));
                         path.push(__dirname + `/truyenqq/${i}_${event.senderID}.png`);
                     }
-                    let msg = data.map(function (item) {
-                        return `📖 Name: ${item.title}\n📅 Time: ${item.time_ago}\n`;
+                    let msg = data.map(function (item, element) {
+                        return `🔗 STT: ${element + 1}\n📖 Name: ${item.title}\n📅 Time: ${item.time_ago}\n`;
                     }).join('\n\n');
                     return api.sendMessage({
                         body: `Kết quả tìm kiếm!\n${msg}\n\nReply tin nhắn này theo số thứ tự để đọc truyện!`,
