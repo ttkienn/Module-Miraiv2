@@ -24,12 +24,7 @@ module.exports.config = {
     description: "Tải nhạc từ SoundCloud",
     commandCategory: "media",
     usages: "soundcloud [url]",
-    cooldowns: 5,
-    dependencies: {
-        axios: "",
-        "fs-extra": "",
-        path: ""
-    }
+    cooldowns: 5
 };
 module.exports.run = function callee$0$0(_ref) {
     var api = _ref.api;
