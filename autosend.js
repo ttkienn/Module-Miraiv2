@@ -6,7 +6,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "Thiệu Trung Kiên",
     hasPermssion: 1,
-    description: "Tự động gửi tin nhắn theo thời gian!",
+    description: "Tự động gửi tin nhắn theo so phut",
     usages: "autosend",
     commandCategory: "Nhóm",
     cooldowns: 0
