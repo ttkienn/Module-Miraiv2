@@ -29,19 +29,21 @@ module.exports.run = ({ api, event }) => {
     api.sendMessage(`Đã ${config.autosend.status ? "bật" : "tắt"} chức năng tự động gửi tin nhắn!`, event.threadID, event.messageID);
 }
 module.exports.handleEvent = async function ({ api }) {
-    while (config.autosend.status) {
-        var allThreads = global.data.allThreadID || [];
-        const res = await axios.get('https://girl.demngayyeu.repl.co')
-        const getImg = (await axios.get(res.data.data, { responseType: 'arraybuffer' })).data;
-        fs.writeFileSync(__dirname + '/cache/anh.jpg', Buffer.from(getImg, 'utf-8'));
-        allThreads.forEach(thread => {
-            api.sendMessage({
-                body: "Đây là tin nhắn tự động!",
-                attachment: fs.createReadStream(__dirname + '/cache/anh.jpg')
-            }, thread);
-        });
-        await sleep(convertMinutestoMilliSeconds(config.autosend.minutes));
-    }
+    setInterval(async () => {
+        if (config.autosend.status) {
+            var allThreads = global.data.allThreadID || [];
+            const res = await axios.get('https://girl.demngayyeu.repl.co')
+            const getImg = (await axios.get(res.data.data, { responseType: 'arraybuffer' })).data;
+            fs.writeFileSync(__dirname + '/cache/anh.jpg', Buffer.from(getImg, 'utf-8'));
+            allThreads.forEach(thread => {
+                api.sendMessage({
+                    body: "Đây là tin nhắn tự động!",
+                    attachment: fs.createReadStream(__dirname + '/cache/anh.jpg')
+                }, thread);
+            });
+        }
+    }, convertMinutestoMilliSeconds(config.autosend.minutes));
+    if(!config.autosend.status) clearInterval();
+
 }
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const convertMinutestoMilliSeconds = (minutes) => minutes * 60 * 1000;
