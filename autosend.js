@@ -10,9 +10,7 @@ module.exports.config = {
 	usages: "autosend",
 	commandCategory: "Nhóm",
 	cooldowns: 0
-}, module.exports.onLoad = async function({
-	api: api
-}) {
+}, module.exports.onLoad = async function({ api }) {
 	var time = [];
 	/* 
 	    Bỏ trống nếu muốn gửi liên tục mỗi tiếng!
