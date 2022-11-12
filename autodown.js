@@ -59,7 +59,7 @@ module.exports.checkLink = function (url) {
                 url: String(found)
             };
         }
-        else if (String(found).includes("soundcloud" || String(found).includes("zingmp3"))) {
+        else if (String(found).includes("soundcloud") || String(found).includes("zingmp3")) {
             return {
                 type: "mp3",
                 url: String(found)
