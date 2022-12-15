@@ -258,7 +258,7 @@ module.exports.handleReply = (() => {
                         for (let i = 0; i < res.data.length; i++) {
                             var getImg = (yield axios.get(res.data[i], {
                                 headers: {
-                                    referer: 'https://truyenqqpro.com/'
+                                    referer: 'https://truyenqqvip.com/'
                                 },
                                 responseType: 'arraybuffer'
                             })).data;
